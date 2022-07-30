@@ -244,4 +244,3 @@ manchesterSchoolData %>%
   labs(title="2016-2019 Average Attainment8Score of Manchester Schools")
 
 
-#--------------------radder graph of robbery------------------------
