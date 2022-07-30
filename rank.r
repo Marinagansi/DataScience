@@ -32,7 +32,7 @@ housePrices=Houseprice  %>%
 housePrices
 
 
-#download rank
+#------------------------download speed rank-----------------------------
 
 speed_downloads = read_csv("cleanBroadBandspeeds.csv") %>% 
   na.omit()
@@ -49,11 +49,6 @@ download_speed=Speed_Download%>%
   mutate(DownloadScore=10-(downloadSpeed/1200)) %>% 
   select(District,DownloadScore)
  
-
-
-download_speed
-
-
 
 #crime score rank
 crime_score=read_csv("cleanCrimes.csv") %>% 
@@ -91,10 +86,8 @@ school_rank
 
 
 
-#overall rank
+#---------------overall rank--------------------------------
 # OVERALL RANKING
-
-
 
 RankingMerge = housePrices%>% 
   left_join(download_speed, by = "District") %>% 

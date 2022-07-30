@@ -57,7 +57,6 @@ ggplot(lm_res,aes(x=AverageDownload,y=Price)) +
 
 
 
-#-----------------------------------------------------------------------------------------
 
 #----------------------------------House price and drug offence--------------------------------------------------
 
@@ -93,7 +92,7 @@ ggplot(lm_res6,aes(x=Price,y=DrugCount)) +
   geom_smooth(method=lm,se=FALSE,color="black")+
   labs(x="Town",y="Drug count",title="House Prices vs Drug",color="County")
 
-#----------------------------Drug and  school -----------------------------------
+#----------------------------Drug and  school ----------------------------------- 
 #mistake
 school_lm= schools %>%
   left_join(Towns,by=c("shortPostCode"="shortPostcode") )%>%  

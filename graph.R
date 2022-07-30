@@ -177,9 +177,6 @@ DrugData <- crimeData %>%
   filter(CrimeType=="Drugs", Year == 2021)
  
 
-
-
-
  
 RobberyData %>% 
   ggplot(aes(x = "", y = perc, fill =Town)) +
@@ -191,50 +188,6 @@ RobberyData %>%
   theme_void()+
   labs(title="2021 Robbery by Town")
 
-
-
-
-
-new_row <- c("Town" = "min", "sumCount" = 3, "perc" = 0.005405405,"labels"=0.54)
-new_row1 <- c("Town" = "max", "sumCount" = 307, "perc" = 	
-                0.553153153153153,"labels"=55.32)
-
-
-data_robbery<-rbind(RobberyData,new_row,new_row1) %>% 
-  select(sumCount,labels,perc)
-
-df_robbery<-data_robbery[c("max","min","WIGAN"),]
-radarchart(data_robbery)
-
-data2 <- data_robbery                                          # Duplicate example data
-data2 <- tibble::rownames_to_column(data_robbery, "Town") # Apply rownames_to_column
-data2  
-
-
-DLine<-ggplot(data= drug_manchester,aes(x=sumCount)+
-                geom_line(aes(y=County)))
-
-
-#------------
-
-
-drug_manchester=DrugData %>% 
-  filter(County=="GREATER MANCHESTER")
-
-drug_merseyside=DrugData %>% 
-  filter(County=="MERSEYSIDE")
-  
-
-plot(drug_manchester,type = "o",col = "red", xlab = "sumCount", ylab = "County", 
-     main = "Rain fall chart")
-
-lines(drug_merseyside, type = "o", col = "blue")
-
-#--------------------------------right
-
-ggplot(DrugData, aes(x = factor(n), y = Town, colour = County, group = County)) +
-  geom_line()
-  scale_x_continuous(limits=c(10,20,),breaks = seq(0, 5000000, 30000))
  
 
 #-----------------school graph---------------
