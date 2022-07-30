@@ -31,6 +31,7 @@ housePrices=Houseprice  %>%
   select(District,HouseScore)
 housePrices
 
+write.csv(housePrices,"E:/sem4_Data_science/houseRank.csv")
 
 #------------------------download speed rank-----------------------------
 
@@ -66,7 +67,7 @@ crime_rank=crime_rank%>%
   rename("crimescore"="score") %>% 
 select(District,crimescore) 
 crime_rank
-
+write.csv(crime_rank,"E:/sem4_Data_science/CrimeRank.csv")
 
 #school score
 school_score=read_csv("cleanSchool.csv")
@@ -83,7 +84,7 @@ school_rank=school_rank%>%
   select(SchoolName,score,District)
 school_rank
 
-
+write.csv(school_rank,"E:/sem4_Data_science/schoolRank.csv")
 
 
 #---------------overall rank--------------------------------
@@ -96,7 +97,7 @@ RankingMerge = housePrices%>%
 
 
 RankingMerge$SchoolName[is.na(RankingMerge$SchoolName)] <- "Not available"
-RankingMerge$SchoolScore[is.na(RankingMerge$score)] <- 0
+RankingMerge$SchoolScore[is.na(RankingMerge$SchoolScore)] <- 0
 
 overallRank = RankingMerge %>% 
   group_by(HouseScore, score,DownloadScore,crimescore) %>%
@@ -104,3 +105,5 @@ overallRank = RankingMerge %>%
   arrange(-overallScore)
 
 overallRank
+
+write.csv(school_rank,"E:/sem4_Data_science/OverallRank.csv")
